@@ -1,0 +1,15 @@
+{
+  "name":"JS Pro",
+  "version":"0.0",
+  "manifest_version": 2,
+  "description":"Javascript Code editor in devtools",
+  "permissions":[
+    "tabs",
+    "http://*/",
+    "https://*/"
+  ],
+  "devtools_page": "bootstrap.html",
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
