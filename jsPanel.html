@@ -1,20 +1,30 @@
 <html>
 <head>
-	<script src="panel.js"></script>
+	<link rel="stylesheet" type="text/css" href="main.css" />
 </head>
 <body>
-<div id="main">
-	<div id="editor">
-		<textarea id="editor-area"></textarea>
+<div class="main">
+	<div class="editorPanel">
+		<div class="activeEditorContainer">
+			<textarea id="activeEditorTextArea"></textarea>
+		</div>
+		<div class="referenceEditorContainer">
+			<textarea id="referenceEditorTextArea"></textarea>
+		</div>
 	</div>
-	<div>
-		<button id="run">run</button>
+
+	<div class="controlPanel">
+		<div>
+			<button id="run">run</button>
+		</div>
 	</div>
+	
 </div>
 
 <script src="codemirror/lib/codemirror.js"></script>
 <link rel="stylesheet" href="codemirror/lib/codemirror.css">
 <script src="codemirror/mode/javascript/javascript.js"></script>
+<script src="messaging.js"></script>
 <script src="jsPanel.js"></script>
 </body>
 </html>

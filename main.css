@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.editorPanel {
+  display: flex;
+}
+
+.activeEditorContainer {
+  flex: 3;
+  border: 1px solid black;
+}
+
+.referenceEditorContainer {
+  flex: 2;
+  border: 1px solid black;
+  background: rgba(0,0,0,0.4);
+}

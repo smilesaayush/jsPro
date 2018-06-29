@@ -1,36 +1,30 @@
-
-// Create a connection to the background page
-var backgroundPageConnection = chrome.runtime.connect({
-  name: "devtools-page"
-});
-
-backgroundPageConnection.onMessage.addListener(function (message) {
-  // Handle responses from the background page, if any
-});
-
-
-
-
-
-const editorArea = document.getElementById("editor-area");
-const myCodeMirror = CodeMirror.fromTextArea(editorArea, {
+const activeEditor = CodeMirror.fromTextArea(document.getElementById("activeEditorTextArea"), {
   lineNumbers: true,
   mode: "javascript"
 });
 
-
-let runButton = document.getElementById("run");
-runButton.addEventListener('click', function() {
-  console.log(myCodeMirror.getValue());
-  // Relay the tab ID to the background page
-  backgroundPageConnection.postMessage({
-    tabId: chrome.devtools.inspectedWindow.tabId,
-    content: myCodeMirror.getValue()
-  });
+const referenceEditor = CodeMirror.fromTextArea(document.getElementById("referenceEditorTextArea"), {
+  mode: "javascript",
+  readOnly: true
 });
 
 
+let runButton = document.getElementById("run");
+runButton.addEventListener('click', executeCurrentCode);
 
+
+function executeCurrentCode() {
+  const currentValue = activeEditor.getValue();
+  sendMsg(currentValue);
+  activeEditor.setValue("");
+  referenceEditor.setValue(referenceEditor.getValue() + "\n//......................\n" + currentValue);
+}
+
+activeEditor.setOption("extraKeys", {
+  'Shift-Ctrl-J': function(cm) {
+    executeCurrentCode();
+  }
+});
 
 
 
