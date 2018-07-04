@@ -8,7 +8,7 @@
     "http://*/",
     "https://*/"
   ],
-  "devtools_page": "bootstrap.html",
+  "devtools_page": "devtools.html",
   "background": {
     "scripts": ["background.js"]
   }
