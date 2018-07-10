@@ -8,6 +8,20 @@
   display: flex;
 }
 
+.controlPanel {
+  height: 24px;
+  display: flex;
+}
+
+.controlPanel div {
+  flex: 1;
+  align-self: center;
+}
+
+.controlPanel .empty {
+  flex: 20;
+}
+
 .activeEditorContainer {
   flex: 3;
   border: 1px solid black;
@@ -18,3 +32,12 @@
   border: 1px solid black;
   background: rgba(0,0,0,0.4);
 }
+
+#run {
+  height: 100%;
+  width: 24px;
+  cursor: pointer;
+}
+
+
+
